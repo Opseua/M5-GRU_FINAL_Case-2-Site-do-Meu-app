@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        function myFunction() {
+            alert("1")
+            let form = document.getElementById("login_form");
+            function handleForm(event) { event.preventDefault(); button() }
+            form.addEventListener('submit', handleForm);
+            alert("2")
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="login_box">
+
+        <div class="brand_logo_container">
+            <img src="./logo_circulo.jpg" class="brand_logo" alt="Logo">
+        </div>
+
+        <form class="login_form" id="login_form">
+            <h1>Acesso</h1>
+            <input class="login_input" type="text" name="email" placeholder="E-mail" required>
+            <input class="login_input" type="password" name="senha" placeholder="Senha" required>
+            <input id="teste" class="login_input" type="password" name="senha" placeholder="Senha" required>
+
+
+            <input class="login_input" type="submit" name="Entrar" value="Entrar">
+
+            <div class="button">
+                <input onclick="myFunction()" class="submit_2" type="submit" value="aqui" />
+            </div>
+
+            <button type="button" onclick="myFunction()">Try it</button>
+
+
+
+            <div class="login_links">
+                <a href="#">Redefinir senha</a>
+                <a href="#">Cadastre-se</a>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
