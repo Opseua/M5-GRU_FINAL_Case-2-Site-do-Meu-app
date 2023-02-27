@@ -1,53 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 * {
-	login_box-sizing: border-login_box;
+	box-sizing: border-box;
 }
 body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Raleway', sans-serif;
 }
-.login_box {
+
+.box {
 	display: flex;
-	background-color: white;
 	align-items: center;
 	justify-content: center;
 	background-color: #21D4FD;
 	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-  	height: 100vh;
+  	height: auto;  
 }
-.login_form {
+
+.login-form {
   	min-width: 250px;
   	max-width: 400px;
 	border-radius: 24px;
 	padding: 15px;
 	background-color: white;
-	login_box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.login_form h1 {
+.login-form h1 {
 	text-align: center;
 	font-size: 2.5rem;
 	margin-top: 35px;
 }
-.login_form input[type = "text"] {
+.login-form input[type = "text"] {
 	margin-top: 30px;
 }
-.login_form input[type = "password"] {
+.login-form input[type = "password"] {
 	margin-top: 10px;
 }
 input {
   outline: none;
  }
-.login_links {
+.links {
 	margin-top: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 }
-.login_links > a:first-of-type {
+.links > a:first-of-type {
 	margin-right: 5px;
 }
-.login_links > a {	
+.links > a {	
 	background-color: #E0E0E0;
 	border-radius: 24px;
 	font-weight: 400;
@@ -60,10 +61,10 @@ input {
   font-family: 'Raleway';
 	transition: 0.25s;
 }
-.login_links > a:hover {	
+.links > a:hover {	
 	opacity: 0.6;
 }
-.login_form input[type = "submit"] {
+.login-form input[type = "submit"] {
 	background-color:  #E0E0E0;
 	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
 	width: 100%;
@@ -78,13 +79,13 @@ input {
 	border-radius: 24px;
 	transition: 0.25s;
 }
-.login_form input[type = "submit"]:hover {
+.login-form input[type = "submit"]:hover {
 	opacity: 0.8;
 }
-.login_form input[type = "text"]:focus, .login_form input[type = "password"]:focus {
+.login-form input[type = "text"]:focus, .login-form input[type = "password"]:focus {
  	border: 2px #21D4FD solid;
  }
-.login_form input[type = "text"], .login_form input[type = "password"] {
+.login-form input[type = "text"], .login-form input[type = "password"] {
 	width: 100%;
 	border: none;
 	border-radius: 24px;
