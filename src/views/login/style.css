@@ -8,7 +8,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-
 }
 
 .login_box {
@@ -21,9 +20,28 @@ body {
     flex-direction: column;
 }
 
+/* LOGO */
+.brand_logo_container {
+    position: relative;
+    height: 170px;
+    width: 170px;
+    top: 50px;
+    border-radius: 50%;
+    background: linear-gradient(19deg, #023535 0%, #0FC2C0 100%);
+    padding: 10px;
+    text-align: center;
+}
 
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
 
-.login_form {
+/* ################################################################### */
+
+/* Todos os formulários */
+.login_todos_os_formularios {
     min-width: 250px;
     max-width: 400px;
     border-radius: 24px;
@@ -35,19 +53,21 @@ body {
     margin-bottom: 40px;
 }
 
-
-.login_form h1 {
+.login_todos_os_formularios h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-top: 35px;
+    margin-bottom: 10px;
 }
 
-.login_form input[type="text"] {
-    margin-top: 1px;
-}
-
-.login_form input[type="password"] {
+.login_todos_os_formularios input[type="text"] {
     margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login_todos_os_formularios input[type="password"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 input {
@@ -55,8 +75,8 @@ input {
 }
 
 .login_links {
-    margin-top: 30px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -84,13 +104,14 @@ input {
     opacity: 0.6;
 }
 
-.login_form input[type="submit"] {
+.login_todos_os_formularios input[type="submit"] {
     background-color: #E0E0E0;
     background-image: linear-gradient(19deg, #0FC2C0 0%, #023535 100%);
     width: 100%;
     color: white;
     border: none;
-    margin-top: 35px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     cursor: pointer;
     padding: 10px;
     font-family: 'Raleway', sans-seriff;
@@ -100,17 +121,17 @@ input {
     transition: 0.25s;
 }
 
-.login_form input[type="submit"]:hover {
+.login_todos_os_formularios input[type="submit"]:hover {
     opacity: 0.8;
 }
 
-.login_form input[type="text"]:focus,
-.login_form input[type="password"]:focus {
+.login_todos_os_formularios input[type="text"]:focus,
+.login_todos_os_formularios input[type="password"]:focus {
     border: 2px #0FC2C0 solid;
 }
 
-.login_form input[type="text"],
-.login_form input[type="password"] {
+.login_todos_os_formularios input[type="text"],
+.login_todos_os_formularios input[type="password"] {
     width: 100%;
     border: none;
     border-radius: 24px;
@@ -120,34 +141,46 @@ input {
     padding: 15px;
 }
 
-
-
-
-
-/* ################################################ */
-
-
-
-.brand_logo_container {
-
-    position: relative;
-    height: 170px;
-    width: 170px;
-    top: 50px;
-    border-radius: 50%;
-    background: linear-gradient(19deg, #023535 0%, #0FC2C0 100%);
-    padding: 10px;
-    text-align: center;
-
-
-
-
+.login_links>input:first-of-type {
+    margin-right: 5px;
 }
 
+.login_links>input {
+    background-color: #E0E0E0;
+    border-radius: 24px;
+    font-weight: 400;
+    color: black;
+    line-height: 12px;
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-family: 'Raleway';
+    transition: 0.25s;
+}
 
-.brand_logo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
+.login_links>input:hover {
+    opacity: 0.6;
+}
 
+/* ################################################################### */
+
+/* Formulário: elementos do formulário 'ACESSO' */
+#login_form_acesso {
+    display: block;
+}
+
+/* Formulário: elemento botão 'VOLTAR' */
+#login_botao_voltar {
+    display: none;
+}
+
+/* Formulário: elementos do formulário 'REDEFINIR SENHA' */
+#login_form_redefinir_senha {
+    display: none;
+}
+
+/* Formulário: elementos do formulário 'CADASTRE-SE' */
+#login_form_cadastre_se {
+    display: none;
 }
