@@ -64,7 +64,7 @@ function show_hide_e_dont_reload(comando) {
     document.getElementById("login_form_redefinir_senha").style.display = "none";
     document.getElementById("login_form_cadastre_se").style.display = "none";
     document.getElementById("login_botao_voltar").style.display = "none";
-    
+
     // Mostrar
     document.getElementById("login_form_acesso").style.display = "block";
     document.getElementById("login_botao_redefinir_senha").style.display = "block";
@@ -72,11 +72,8 @@ function show_hide_e_dont_reload(comando) {
 
   }
 
-
-
-
-
-  /* alert(`${elemento} - ${comando}`); */
+  // Recarregar página
+  /* window.location.reload(); */
 
 }
 
