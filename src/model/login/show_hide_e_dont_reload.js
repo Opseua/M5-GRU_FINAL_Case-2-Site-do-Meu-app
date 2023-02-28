@@ -6,9 +6,9 @@ function show_hide_e_dont_reload(comando) {
 
     alert("ROTA: abrir a página de notas");
 
-    var form = document.getElementById(id_formulario);
+/*     var form = document.getElementById(id_formulario);
     function handleForm(event) { event.preventDefault(); button() }
-    form.addEventListener('submit', handleForm);
+    form.addEventListener('submit', handleForm); */
 
     // Recarregar página
     /* window.location.reload(); */
