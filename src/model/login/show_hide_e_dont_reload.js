@@ -1,17 +1,31 @@
+
 // Exibir e ocultar elemento
+
+const API = require('./get_post_put');
 function show_hide_e_dont_reload(comando) {
 
   // Usando o botão 'Entrar'
   if ((comando == "login_botao_submit")) {
+    const ele_botao = document.getElementById("login_botao_submit").value;
 
-    alert("ROTA: abrir a página de notas");
+    // Na tela "Acesso" (checar se o email e senha do usuário existem)
+    if ((ele_botao == "Entrar")) {
+      alert("rodando");
 
-/*     var form = document.getElementById(id_formulario);
-    function handleForm(event) { event.preventDefault(); button() }
-    form.addEventListener('submit', handleForm); */
+      API()
 
-    // Recarregar página
-    /* window.location.reload(); */
+
+
+    }
+
+
+
+
+
+
+
+
+
 
   }
 
