@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+
+}
+
 .login_box {
     display: flex;
     align-items: center;

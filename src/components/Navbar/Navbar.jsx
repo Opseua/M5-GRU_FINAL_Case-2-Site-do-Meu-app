@@ -39,7 +39,7 @@ export default function Navbar() {
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__content__logo">
-          Caderneta da saúde
+          Caderno da saúde
         </Link>
         <nav
           className={`${"header__content__nav"} 
@@ -62,6 +62,10 @@ export default function Navbar() {
 
             <Link to="/login">
               <button className="btn">Login</button>
+            </Link>
+
+            <Link to="/get-notas">
+              <button className="btn">GetNotas</button>
             </Link>
           </ul>
         </nav>

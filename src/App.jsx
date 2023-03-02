@@ -1,9 +1,10 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import Sobre from "./Pages/Sobre";
-import Recursos from "./Pages/Recursos";
-import Contatos from "./Pages/Contatos";
-import Login from "./Pages/Login";
+import Home from "./views/home/Home";
+import Sobre from "./views/sobre/Sobre";
+import Recursos from "./views/recursos/Recursos";
+import Contatos from "./views/contatos/Contatos";
+import Login from "./views/login/Login";
+import GetNotas from "./views/getnotas/GetNotas";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/recursos" element={<Recursos />} />
       <Route path="/contatos" element={<Contatos />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/get-notas" element={<GetNotas />} />
     </Routes>
   );
 }
