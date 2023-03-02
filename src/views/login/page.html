@@ -4,87 +4,51 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <script src="../../model/login/show_hide_e_dont_reload.js"></script>
-
 </head>
 
 <body>
+
+    
     <div class="login_box">
+
         <div class="brand_logo_container">
-            <img src="./logo_circulo.jpg" class="brand_logo" alt="Logo">
+            <img src="./logo_circulo.jpg" class="brand_logo" alt="Logo"></img>
         </div>
 
-        <!-- ################################################################### -->
+        <form class="login_form" id="login_form">
+            <h1>Acesso</h1>
+            <input class="login_input" type="text" name="email" placeholder="E-mail" required></input>
+            <input class="login_input" type="password" name="senha" placeholder="Senha" required></input>
+            <input class="login_input" type="submit" name="Entrar" value="Entrar"></input>
 
-        <!-- Formulário: ACESSO / REDEFINIR SENHA / CADASTRO -->
-        <form class="login_todos_os_formularios">
 
-            <!-- Formulário: elemento 'TÍTULO' -->
-            <h1 id="login_titulo">Acesso</h1>
 
-            <!-- Formulário: elementos do formulário 'ACESSO' -->
-            <div id="login_form_acesso">
+            <input id="login_input_usuario_nome" class="login_input" type="text" name="cadastro_usuario_nome"
+                placeholder="Nome" required></input>
+            <input id="login_input_usuario_email" class="login_input" type="text" name="cadastro_usuario_email"
+                placeholder="E-mail" required></input>
+            <input id="login_input_usuario_senha" class="login_input" type="password" name="cadastro_usuario_senha"
+                placeholder="Senha" required></input>
+            <input id="login_input_usuario_genero" class="login_input" type="text" name="cadastro_usuario_genero"
+                placeholder="Genero" required></input>
+            <input id="login_input_usuario_nascimento" class="login_input" type="date"
+                name="cadastro_usuario_nascimento" placeholder="Data de nascimento" required></input>
+            <input id="login_input_usuario_peso" class="login_input" type="number" name="cadastro_usuario_peso"
+                placeholder="Seu peso" required></input>
+            <input id="login_input_usuario_altura" class="login_input" type="number" name="cadastro_usuario_altura"
+                placeholder="Sua altura" required></input>
+            <input id="login_input_usuario_tipo_sanguineo" class="login_input" type="text"
+                name="cadastro_usuario_tipo_sanguineo" placeholder="Seu tipo sanguineo" required></input>
+            <input id="login_input_usuario_reset_pergunta" class="login_input" type="text"
+                name="cadastro_usuario_reset_pergunta" placeholder="Escolha uma pergunta de segurança" required></input>
+            <input id="login_input_usuario_reset_resposta" class="login_input" type="text"
+                name="cadastro_usuario_usuario_reset_resposta" placeholder="Resposta da sua pergunta" required></input>
 
-                <input class="login_input" id="login_acesso_email" type="text" name="usuario_email" placeholder="E-mail">
-                <input class="login_input" id="login_acesso_senha_1" type="password" name="usuario_senha_1" placeholder="Senha">
 
-            </div>
-
-            <!-- Formulário: elementos do formulário 'REDEFINIR SENHA' -->
-            <div id="login_form_redefinir_senha">
-
-                <input class="login_input" type="text" name="usuario_email" placeholder="E-mail*" required>
-                <input class="login_input" type="text" name="usuario_reset_pergunta"
-                    placeholder="Pergunta de segurança*" required>
-                <input class="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
-                    required>
-                <input class="login_input" type="password" name="usuario_senha_1" placeholder="Nova senha*" required>
-                <input class="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
-                    required>
-
-            </div>
-
-            <!-- Formulário: elementos do formulário 'CADASTRO' -->
-            <div id="login_form_cadastre_se">
-
-                <input class="login_input" type="text" name="usuario_nome" placeholder="Nome*" required>
-                <input class="login_input" type="text" name="usuario_email" placeholder="E-mail*" required>
-                <input class="login_input" type="password" name="usuario_senha_1" placeholder="Senha*" required>
-                <input class="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
-                    required>
-                <input class="login_input" type="text" name="usuario_genero" placeholder="Gênero">
-                <input class="login_input" type="text" name="usuario_nascimento" placeholder="Data de nascimento"
-                    required>
-                <input class="login_input" type="text" name="usuario_peso" placeholder="Seu peso">
-                <input class="login_input" type="text" name="usuario_altura" placeholder="Sua altura">
-                <input class="login_input" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo">
-                <input class="login_input" type="text" name="usuario_reset_pergunta"
-                    placeholder="Pergunta de segurança*" required>
-                <input class="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
-                    required>
-
-            </div>
-
-            <!-- Formulário: elemento botão 'ENTRAR' -->
-            <input onclick="show_hide_e_dont_reload('login_botao_submit')" class="login_input" id="login_botao_submit"
-                type="submit" name="Entrar" value="Entrar">
-
-            <!-- Formulário: elemento botão 'VOLTAR' -->
-            <input onclick="show_hide_e_dont_reload('login_botao_voltar')" class="login_input" id="login_botao_voltar"
-                type="submit" name="Voltar" value="Voltar">
-
-            <!-- Formulário: elementos botões 'REDEFINIR SENHA' e 'CADASTRE-SE' -->
             <div class="login_links">
-
-                <input onclick="show_hide_e_dont_reload('login_botao_redefinir_senha')" class="login_input"
-                    id="login_botao_redefinir_senha" type="submit" name="Redefinir_senha" value="Redefinir senha">
-
-                <input onclick="show_hide_e_dont_reload('login_botao_cadastre_se')" class="login_input"
-                    id="login_botao_cadastre_se" type="submit" name="Cadastre_se" value="Cadastre-se">
-
+                <a href="#">Redefinir senha</a>
+                <a href="#">Cadastre-se</a>
             </div>
-
         </form>
 
     </div>

@@ -1,7 +1,5 @@
 
 // Exibir e ocultar elemento
-
-const API = require('./get_post_put');
 function show_hide_e_dont_reload(comando) {
 
   // Usando o botão 'Entrar'
@@ -12,7 +10,31 @@ function show_hide_e_dont_reload(comando) {
     if ((ele_botao == "Entrar")) {
       alert("rodando");
 
-      API()
+
+
+
+      const asyncPostCall = async () => {
+        try {
+          const response = await fetch('https://m5-gru-crud-api.cyclic.app/usuarios', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          });
+          const data = await response.json();
+          // enter you logic when the fetch is successful
+          alert(JSON.stringify(data))
+          console.log(data);
+        } catch (error) {
+          // enter your logic for when there is an error (ex. error toast)
+          alert("Nao rodou");
+          console.log(error)
+        }
+      }
+
+      asyncPostCall()
+
+
 
 
 
@@ -92,6 +114,8 @@ function show_hide_e_dont_reload(comando) {
 }
 
 module.exports = show_hide_e_dont_reload;
+
+
 
 
 
