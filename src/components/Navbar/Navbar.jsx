@@ -39,7 +39,7 @@ export default function Navbar() {
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__content__logo">
-          Caderno da saúde
+          Caderno da Saúde
         </Link>
         <nav
           className={`${"header__content__nav"} 
@@ -48,7 +48,7 @@ export default function Navbar() {
         >
           <ul>
             <li>
-              <Link to="/">Inicio</Link>
+              <Link to="/">Início</Link>
             </li>
             <li>
               <Link to="/sobre">Sobre</Link>
@@ -56,17 +56,11 @@ export default function Navbar() {
             <li>
               <Link to="/recursos">Recursos</Link>
             </li>
-            <li>
-              <Link to="/contatos">Contatos</Link>
-            </li>
 
             <Link to="/login">
               <button className="btn">Login</button>
             </Link>
 
-            <Link to="/get-notas">
-              <button className="btn">GetNotas</button>
-            </Link>
           </ul>
         </nav>
         <div className="header__content__toggle">

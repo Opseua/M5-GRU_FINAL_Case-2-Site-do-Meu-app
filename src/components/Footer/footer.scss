@@ -1,0 +1,20 @@
+@mixin breakpoint($point) {
+  @if $point == md {
+    // 768px
+    @media (min-width: 930px) {
+      @content;
+    }
+  }
+}
+
+.footer_footer {
+  background: rgb(32, 32, 32);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer_footer p {
+  margin: 0;
+  font-size: 14px;
+}

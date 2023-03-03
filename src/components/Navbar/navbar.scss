@@ -1,7 +1,7 @@
 @mixin breakpoint($point) {
   @if $point == md {
     // 768px
-    @media (min-width: 48em) {
+    @media (min-width: 930px) {
       @content;
     }
   }
@@ -28,6 +28,7 @@
     justify-content: space-between;
     position: relative;
     z-index: 100;
+    text-align: center;
 
     &__logo {
       font-size: 2rem;

@@ -19,29 +19,31 @@
   border-radius: 1rem;
 }
 
-.texto_inicio {
+.mainFrame_inicio {
   align-items: center;
   text-align: justify;
   font-size: 18px;
- 
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
-
-h1 {
+ 
+.inicio_h1 {
   text-align: center;
 }
 
 
 
-body {
-  margin: 0;
-  padding: 0;
-  background-image: linear-gradient(19deg, #0FC2C0 0%, #023535 100%);
-}
 
 
 @media only screen and (max-width: 400px) {
-  h1,h2 {
+
+  .inicio_h1,
+  .inicio_h2 {
     font-size: 14px;
   }
 }
 
+.inicio_h1,
+.inicio_h2 {
+  color: white;
+}
