@@ -1,0 +1,47 @@
+.minhasfotos {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 866px) {
+  .minhasfotos {
+    flex-wrap: nowrap;
+  }
+}
+
+.imagem-card {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+  border-radius: 1rem;
+}
+
+.texto_inicio {
+  align-items: center;
+  text-align: justify;
+  font-size: 18px;
+ 
+}
+
+h1 {
+  text-align: center;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(19deg, #0FC2C0 0%, #023535 100%);
+}
+
+
+@media only screen and (max-width: 400px) {
+  h1,h2 {
+    font-size: 14px;
+  }
+}
+
