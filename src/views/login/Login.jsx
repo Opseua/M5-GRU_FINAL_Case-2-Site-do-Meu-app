@@ -1,46 +1,61 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
-import Navbar from "../../components/Navbar/Navbar";
+import { useNavigate } from 'react-router-dom';
 import './style.css'
-import logo from '../../assets/login/logo_circulo.jpg';
+import logo from './imagens/logo_circulo.jpg';
+
+
 
 export default function Login() {
+
+  const navigate = useNavigate();
+
+  function botao_funcao(inf) {
+
+    if (inf.match(/\//)) {
+      navigate(inf)
+    };
+
+    if (!inf.match(/\//)) {
+      alert("Definir o elemento")
+    };
+
+  };
+
+
   return (
-    <div class="login_box">
-      <Navbar />
 
+    <div className="login_box">
 
-
-      <div class="brand_logo_container">
-        <img src={logo} class="brand_logo" alt="Logo"></img>
+      <div className="brand_logo_container">
+        <img src={logo} className="brand_logo" alt="Logo"></img>
       </div>
 
       {/* ################################################################### */}
 
       {/* Formulário: ACESSO / REDEFINIR SENHA / CADASTRO */}
-      <form class="login_todos_os_formularios">
+      <form className="login_todos_os_formularios">
 
         {/*  Formulário: elemento 'TÍTULO' */}
-        <h1 id="login_titulo">Acesso</h1>
+        <h1 className="login_h1" id="login_titulo">Acesso</h1>
 
         {/* Formulário: elementos do formulário 'ACESSO' */}
         <div id="login_form_acesso">
 
-          <input class="login_input" id="login_acesso_email" type="text" name="usuario_email" placeholder="E-mail"></input>
-          <input class="login_input" id="login_acesso_senha_1" type="password" name="usuario_senha_1" placeholder="Senha"></input>
+          <input className="login_input" id="login_acesso_email" type="text" name="usuario_email" placeholder="E-mail"></input>
+          <input className="login_input" id="login_acesso_senha_1" type="password" name="usuario_senha_1" placeholder="Senha"></input>
 
         </div>
 
         {/* Formulário: elementos do formulário 'REDEFINIR SENHA' */}
         <div id="login_form_redefinir_senha">
 
-          <input class="login_input" type="text" name="usuario_email" placeholder="E-mail*" required></input>
-          <input class="login_input" type="text" name="usuario_reset_pergunta"
+          <input className="login_input" type="text" name="usuario_email" placeholder="E-mail*" required></input>
+          <input className="login_input" type="text" name="usuario_reset_pergunta"
             placeholder="Pergunta de segurança*" required></input>
-          <input class="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
+          <input className="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
             required></input>
-          <input class="login_input" type="password" name="usuario_senha_1" placeholder="Nova senha*" required></input>
-          <input class="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
+          <input className="login_input" type="password" name="usuario_senha_1" placeholder="Nova senha*" required></input>
+          <input className="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
             required></input>
 
         </div>
@@ -48,39 +63,39 @@ export default function Login() {
         {/* Formulário: elementos do formulário 'CADASTRO' */}
         <div id="login_form_cadastre_se">
 
-          <input class="login_input" type="text" name="usuario_nome" placeholder="Nome*" required></input>
-          <input class="login_input" type="text" name="usuario_email" placeholder="E-mail*" required></input>
-          <input class="login_input" type="password" name="usuario_senha_1" placeholder="Senha*" required></input>
-          <input class="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
+          <input className="login_input" type="text" name="usuario_nome" placeholder="Nome*" required></input>
+          <input className="login_input" type="text" name="usuario_email" placeholder="E-mail*" required></input>
+          <input className="login_input" type="password" name="usuario_senha_1" placeholder="Senha*" required></input>
+          <input className="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
             required></input>
-          <input class="login_input" type="text" name="usuario_genero" placeholder="Gênero"></input>
-          <input class="login_input" type="text" name="usuario_nascimento" placeholder="Data de nascimento"
+          <input className="login_input" type="text" name="usuario_genero" placeholder="Gênero"></input>
+          <input className="login_input" type="text" name="usuario_nascimento" placeholder="Data de nascimento"
             required></input>
-          <input class="login_input" type="text" name="usuario_peso" placeholder="Seu peso"></input>
-          <input class="login_input" type="text" name="usuario_altura" placeholder="Sua altura"></input>
-          <input class="login_input" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo"></input>
-          <input class="login_input" type="text" name="usuario_reset_pergunta"
+          <input className="login_input" type="text" name="usuario_peso" placeholder="Seu peso"></input>
+          <input className="login_input" type="text" name="usuario_altura" placeholder="Sua altura"></input>
+          <input className="login_input" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo"></input>
+          <input className="login_input" type="text" name="usuario_reset_pergunta"
             placeholder="Pergunta de segurança*" required></input>
-          <input class="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
+          <input className="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
             required></input>
 
         </div>
 
         {/*  Formulário: elemento botão 'ENTRAR' */}
-        <input onclick="show_hide_e_dont_reload('login_botao_submit')" class="login_input" id="login_botao_submit"
+        <input onClick={() => botao_funcao("/get-notas")} className="login_input" id="login_botao_submit"
           type="submit" name="Entrar" value="Entrar"></input>
 
         {/* Formulário: elemento botão 'VOLTAR' */}
-        <input onclick="show_hide_e_dont_reload('login_botao_voltar')" class="login_input" id="login_botao_voltar"
+        <input className="login_input" id="login_botao_voltar"
           type="submit" name="Voltar" value="Voltar"></input>
 
         {/* Formulário: elementos botões 'REDEFINIR SENHA' e 'CADASTRE-SE' */}
-        <div class="login_links">
+        <div className="login_links">
 
-          <input onclick="show_hide_e_dont_reload('login_botao_redefinir_senha')" class="login_input"
+          <input onclick="show_hide_e_dont_reload('login_botao_redefinir_senha')" className="login_input"
             id="login_botao_redefinir_senha" type="submit" name="Redefinir_senha" value="Redefinir senha"></input>
 
-          <input onclick="show_hide_e_dont_reload('login_botao_cadastre_se')" class="login_input"
+          <input onclick="show_hide_e_dont_reload('login_botao_cadastre_se')" className="login_input"
             id="login_botao_cadastre_se" type="submit" name="Cadastre_se" value="Cadastre-se"></input>
 
         </div>
@@ -89,8 +104,10 @@ export default function Login() {
 
 
 
-
-      <Footer />
     </div>
+
   );
 }
+
+
+

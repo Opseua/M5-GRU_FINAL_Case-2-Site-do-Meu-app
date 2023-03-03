@@ -1,3 +1,10 @@
+.minhasfotos {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
 
 @media (min-width: 866px) {
   .minhasfotos {
@@ -5,8 +12,14 @@
   }
 }
 
+.imagem-card {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+  border-radius: 1rem;
+}
 
-.mainFrame_sobre {
+.mainFrame_inicio {
   align-items: center;
   text-align: justify;
   font-size: 18px;
@@ -14,7 +27,7 @@
   margin-right: 3rem;
 }
  
-.sobre_h1 {
+.inicio_h1 {
   text-align: center;
 }
 
@@ -24,13 +37,13 @@
 
 @media only screen and (max-width: 400px) {
 
-  .sobre_h1,
-  .sobre_h2 {
+  .inicio_h1,
+  .inicio_h2 {
     font-size: 14px;
   }
 }
 
-.sobre_h1,
-.sobre_h2 {
+.inicio_h1,
+.inicio_h2 {
   color: white;
 }
