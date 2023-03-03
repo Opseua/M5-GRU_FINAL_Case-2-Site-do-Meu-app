@@ -1,37 +1,47 @@
-.App {
-    width : 100% ;
-    margin: 0 auto;
-    min-height: 100 vh ;
-    display: flex ;
-    align-items: center ;
-    justify-content: center;
-    max-height: 900px;
-}
-.inner {
-    display: flex ;
+.minhasfotos {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.item{
-  min-height: 200px;
-  min-width: 400px;
-  padding: 14px;
-}
-.item img{
-    width: 100%;
-    height: 90%;
-    border-radius : 12px;
-    pointer-events: none;
+@media (min-width: 866px) {
+  .minhasfotos {
+    flex-wrap: nowrap;
+  }
 }
 
-.carousel{
-    cursor: grab;
-    overflow: hidden;
-
+.imagem-card {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+  border-radius: 1rem;
 }
 
-.Texto{  
-    
-    align-items: center ;
- background-color: blue;
-
+.texto_inicio {
+  align-items: center;
+  text-align: justify;
+  font-size: 18px;
+ 
 }
+
+h1 {
+  text-align: center;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(19deg, #0FC2C0 0%, #023535 100%);
+}
+
+
+@media only screen and (max-width: 400px) {
+  h1,h2 {
+    font-size: 14px;
+  }
+}
+
