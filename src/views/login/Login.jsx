@@ -182,13 +182,14 @@ export default function Login() {
         const email = funcoes.PegarPeloId("login_se_cadastrar_email");
         const senha1 = funcoes.PegarPeloId("login_se_cadastrar_senha_1");
         const senha2 = funcoes.PegarPeloId("login_se_cadastrar_senha_2");
-        const genero = funcoes.PegarPeloId("login_se_cadastrar_genero");
+        const genero = funcoes.PegarPeloId("option_login_se_cadastrar_genero");
         const nascimento = funcoes.PegarPeloId("login_se_cadastrar_nascimento");
         var peso = funcoes.PegarPeloId("login_se_cadastrar_peso");
         var altura = funcoes.PegarPeloId("login_se_cadastrar_altura");
-        var tipo_sanguineo = funcoes.PegarPeloId("login_se_cadastrar_tipo_sanguineo");
-        const reset_pergunta = funcoes.PegarPeloId("login_se_cadastrar_reset_pergunta");
+        var tipo_sanguineo = funcoes.PegarPeloId("option_login_se_cadastrar_tipo_sanguineo");
+        const reset_pergunta = funcoes.PegarPeloId("option_login_se_cadastrar_reset_pergunta");
         const reset_resposta = funcoes.PegarPeloId("login_se_cadastrar_reset_resposta");
+        
 
         if ((typeof nome === 'undefined') || !(nome.length > 3)) {
           alert("Cadastro: NOME INVÁLIDO!");
@@ -206,7 +207,7 @@ export default function Login() {
           alert("Cadastro: SENHAS NÃO CONFEREM!");
           return
         }
-        if ((typeof genero === 'undefined') || !(genero.length > 2)) {
+        if ((typeof genero === 'undefined') || !(genero == "Feminino") && !(genero == "Masculino") && !(genero == "Outros")) {
           alert("Cadastro: ERRO GENERO!");
           return
         }
@@ -222,11 +223,11 @@ export default function Login() {
           alert("Cadastro: ERRO ALTURA!");
           return
         }
-        if ((typeof tipo_sanguineo === 'undefined') || !(tipo_sanguineo.length > 1)) {
+        if ((typeof tipo_sanguineo === 'undefined') || !(tipo_sanguineo == 'A+') && !(tipo_sanguineo == 'B+') && !(tipo_sanguineo == 'AB+') && !(tipo_sanguineo == 'O+') && !(tipo_sanguineo == 'A-') && !(tipo_sanguineo == 'B-') && !(tipo_sanguineo == 'AB-') && !(tipo_sanguineo == 'O-')) {
           alert("Cadastro: ERRO TIPO SANGUINEO!");
           return
         }
-        if ((typeof reset_pergunta === 'undefined') || !(reset_pergunta.length > 2)) {
+        if ((typeof reset_pergunta === 'undefined') || (reset_pergunta == "Pergunta de segurança")) {
           alert("Cadastro: ERRO PERGUNTA!");
           return
         }
@@ -256,6 +257,7 @@ export default function Login() {
             "usuario_reset_resposta": reset_resposta,
             "usuario_extra": "{\"inf_1\":\"A\"}"
           });
+          setLoading(true);
           var config = {
             method: 'post',
             url: 'https://m5-gru-crud-api.cyclic.app/usuarios',
@@ -350,12 +352,12 @@ export default function Login() {
               {/* Formulário: elementos do formulário 'REDEFINIR SENHA' */}
               <div id="login_form_redefinir_senha">
 
-                <input className="login_input" id="login_redefinir_senha_email" type="text" name="usuario_email" placeholder="E-mail*" required></input>
+                <input className="login_input" id="login_redefinir_senha_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
                 <input className="login_input" id="login_redefinir_senha_reset_pergunta" type="text" name="usuario_reset_pergunta"
-                  placeholder="Pergunta de segurança*" required></input>
+                  placeholder="Pergunta de segurança" required></input>
                 <input className="login_input" id="login_redefinir_senha_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
                   required></input>
-                <input className="login_input" id="login_redefinir_senha_senha_1" t type="password" name="usuario_senha_1" placeholder="Nova senha*" required></input>
+                <input className="login_input" id="login_redefinir_senha_senha_1" t type="password" name="usuario_senha_1" placeholder="Nova senha" required></input>
                 <input className="login_input" id="login_redefinir_senha_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
                   required></input>
 
@@ -363,19 +365,63 @@ export default function Login() {
               {/* Formulário: elementos do formulário 'CADASTRO' */}
               <div id="login_form_cadastre_se">
 
-                <input className="login_input" id="login_se_cadastrar_nome" type="text" name="usuario_nome" placeholder="Nome*" required></input>
-                <input className="login_input" id="login_se_cadastrar_email" type="text" name="usuario_email" placeholder="E-mail*" required></input>
-                <input className="login_input" id="login_se_cadastrar_senha_1" type="password" name="usuario_senha_1" placeholder="Senha*" required></input>
+                <input className="login_input" id="login_se_cadastrar_nome" type="text" name="usuario_nome" placeholder="Nome" required></input>
+                <input className="login_input" id="login_se_cadastrar_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
+                <input className="login_input" id="login_se_cadastrar_senha_1" type="password" name="usuario_senha_1" placeholder="Senha" required></input>
                 <input className="login_input" id="login_se_cadastrar_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
                   required></input>
-                <input className="login_input" id="login_se_cadastrar_genero" type="text" name="usuario_genero" placeholder="Gênero" required></input>
+
+                <select className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" name="genero" required>
+                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="">Genero</option>
+                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="Masculino">Masculino</option>
+                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="feminino">Feminino</option>
+                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="outros">Outros</option>
+                </select>
+
+
                 <input className="login_input" id="login_se_cadastrar_nascimento" type="date" min="1980-12-31" max="2030-12-31" name="usuario_nascimento" placeholder="Data de nascimento"
                   required></input>
                 <input className="login_input" id="login_se_cadastrar_peso" type="number" step="0.01" name="usuario_peso" placeholder="Seu peso" required></input>
                 <input className="login_input" id="login_se_cadastrar_altura" type="number" step="0.01" name="usuario_altura" placeholder="Sua altura" required></input>
-                <input className="login_input" id="login_se_cadastrar_tipo_sanguineo" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo" required></input>
-                <input className="login_input" id="login_se_cadastrar_reset_pergunta" type="text" name="usuario_reset_pergunta"
-                  placeholder="Pergunta de segurança*" required></input>
+
+
+
+
+
+
+                <select className="login_input" type="text" id="option_login_se_cadastrar_tipo_sanguineo" name="tipo_sanguineo" required>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="nao_sei">Não sei</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A+">A+</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="B+">B+</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB+">AB+</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O+">O+</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A-">A-</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB-">B-</option>
+                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O-">O-</option>
+                </select>
+
+
+
+
+
+
+
+
+
+                <select className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" name="genero" required>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Pergunta de segurança</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Comida favorita?</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="feminino">Cor favorita?</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Filme favorito?</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Prefere calor ou frio??</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Nome do pai?</option>
+                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Música favorita?</option>
+                </select>
+
+
+
+
+
                 <input className="login_input" id="login_se_cadastrar_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
                   required></input>
 

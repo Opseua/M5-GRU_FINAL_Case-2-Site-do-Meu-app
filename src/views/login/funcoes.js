@@ -1,5 +1,13 @@
 export const funcoes = {
   PegarPeloId: (ele_pegar) => {
+    
+    if (ele_pegar.match(/option/)) {
+      
+      var e = document.getElementById(ele_pegar);
+      var value = e.options[e.selectedIndex].value;
+      var text = e.options[e.selectedIndex].text;
+      return text;
+    }
     return document.getElementById(ele_pegar).value;
   },
 
