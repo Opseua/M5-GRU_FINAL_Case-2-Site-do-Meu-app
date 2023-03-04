@@ -15,16 +15,16 @@ function Inicio() {
 
       <div className="minhasfotos">
 
-        <img className="imagem-card" src={imagem1} alt="imagem1" />
+        <img className="imagem-card" src={imagem1} alt="imagem1"></img>
 
-        <img className="imagem-card" src={imagem2} alt="imagem2" />
+        <img className="imagem-card" src={imagem2} alt="imagem2"></img>
 
-        <img className="imagem-card" src={imagem3} alt="imagem3" />
+        <img className="imagem-card" src={imagem3} alt="imagem3"></img>
 
       </div>
 
 
-      <div class="texto_inicio">
+      <div className="texto_inicio">
         <Texto />
       </div>
 

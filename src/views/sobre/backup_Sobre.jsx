@@ -6,7 +6,7 @@ function Sobre() {
   return (
     <div className="mainFrame_sobre">
 
-      <div class="texto_sobre">
+      <div className="texto_sobre">
         <Texto />
       </div>
 

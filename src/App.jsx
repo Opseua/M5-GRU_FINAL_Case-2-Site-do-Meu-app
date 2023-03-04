@@ -27,7 +27,6 @@ export function WrappedApp() {
       <body>
         <App />
       </body>
-
       <Footer />
     </HashRouter>
   );

@@ -26,7 +26,7 @@ function Funcionalidades() {
           console.error(error);
           setLoading(false);
         });
-    }, 1);
+    }, 0);
   }, []);
 
   return (
