@@ -54,11 +54,15 @@ export default function Navbar() {
               <Link to="/sobre">Sobre</Link>
             </li>
             <li>
-              <Link to="/recursos">Recursos</Link>
+              <Link to="/funcionalidades">Funcionalidades</Link>
             </li>
 
             <Link to="/login">
               <button className="btn">Login</button>
+            </Link>
+
+            <Link to="/teste">
+              <button className="btn">Teste</button>
             </Link>
 
           </ul>

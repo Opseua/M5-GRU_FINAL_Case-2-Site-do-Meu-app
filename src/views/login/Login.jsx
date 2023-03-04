@@ -1,13 +1,20 @@
-import React from "react";
 import { useNavigate } from 'react-router-dom';
-import './style.css'
+import React, { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import './style.css';
 import logo from './imagens/logo_circulo.jpg';
+
+import { Audio } from 'react-loader-spinner';
+
+
 
 
 
 export default function Login() {
 
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   function botao_funcao(inf) {
 
@@ -18,13 +25,27 @@ export default function Login() {
     if (!inf.match(/\//)) {
       alert("Definir o elemento")
     };
-
   };
+
+
+  async function fetchData() {
+    alert("1");
+    setIsLoading(true);
+    const response = await fetch('https://m5-gru-crud-api.cyclic.app/adm/sobre');
+    const data = await response.json();
+    setIsLoading(false);
+    // processar os dados retornados pela API
+  }
 
 
   return (
 
+
+
+
     <div className="login_box">
+
+
 
       <div className="brand_logo_container">
         <img src={logo} className="brand_logo" alt="Logo"></img>
@@ -33,6 +54,7 @@ export default function Login() {
       {/* ################################################################### */}
 
       {/* Formulário: ACESSO / REDEFINIR SENHA / CADASTRO */}
+
       <form className="login_todos_os_formularios">
 
         {/*  Formulário: elemento 'TÍTULO' */}
@@ -82,7 +104,7 @@ export default function Login() {
         </div>
 
         {/*  Formulário: elemento botão 'ENTRAR' */}
-        <input onClick={() => botao_funcao("/get-notas")} className="login_input" id="login_botao_submit"
+        <input onClick={() => fetchData("/get-notas")} className="login_input" id="login_botao_submit"
           type="submit" name="Entrar" value="Entrar"></input>
 
         {/* Formulário: elemento botão 'VOLTAR' */}

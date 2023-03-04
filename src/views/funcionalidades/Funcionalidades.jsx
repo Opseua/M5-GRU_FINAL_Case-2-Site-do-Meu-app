@@ -10,15 +10,14 @@ const override = css`
   border-color: red;
 `;
 
-
-function Sobre() {
+function Funcionalidades() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://m5-gru-crud-api.cyclic.app/adm/sobre")
+        .get("https://m5-gru-crud-api.cyclic.app/adm/funcionalidades")
         .then((response) => {
           setData(response.data.data);
           setLoading(false);
@@ -31,7 +30,9 @@ function Sobre() {
   }, []);
 
   return (
-    <div className="Sobre">
+    <div className="Funcionalidades">
+
+      {/* SPINNER LOADER DE CARREGAMENTO */}
       {loading && (
         <div
           style={{
@@ -64,10 +65,10 @@ function Sobre() {
           {data.map(item => (
 
 
-            <div className='sobre_bloco_do_card'>
-              <div className='sobre_titulo' key={item.sobre_titulo}>
-                <h2>{item.sobre_titulo}</h2>
-                <p className='sobre_descricao'>{item.sobre_descricao}</p>
+            <div className='funcionalidades_bloco_do_card'>
+              <div className='funcionalidades_titulo' key={item.funcionalidade_titulo}>
+                <h2>{item.funcionalidade_titulo}</h2>
+                <p className='funcionalidades_descricao'>{item.funcionalidade_descricao}</p>
               </div>
             </div>
 
@@ -83,4 +84,4 @@ function Sobre() {
   );
 }
 
-export default Sobre;
+export default Funcionalidades;

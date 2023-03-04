@@ -3,8 +3,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Inicio from "./views/inicio/Inicio";
 import Sobre from "./views/sobre/Sobre";
-import Recursos from "./views/recursos/Recursos";
+import Funcionalidades from "./views/funcionalidades/Funcionalidades";
 import Login from "./views/login/Login";
+import Teste from "./views/teste/Teste";
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Inicio />} />
       <Route path="/sobre" element={<Sobre />} />
-      <Route path="/recursos" element={<Recursos />} />
+      <Route path="/funcionalidades" element={<Funcionalidades />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/teste" element={<Teste />} />
     </Routes>
   );
 }
