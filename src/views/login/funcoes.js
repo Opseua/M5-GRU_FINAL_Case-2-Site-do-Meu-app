@@ -29,13 +29,59 @@ export const funcoes = {
 
   /* ################################################################################## */
 
-  BotaoSumit: () => {
-    const ele_botao = document.getElementById("login_botao_submit").value;
-    // Na tela "Acesso" (checar se o email e senha do usuário existem)
-    if ((ele_botao == "Entrar")) {
-      return "botao_entrar";
+  BotaoSumit: (inf) => {
+    
+    if ((inf == "botao_entrar")) {
+      const botao = document.getElementById("login_botao_submit").value;
+      if (botao == "Entrar") {
+        return "botao_entrar";
+      };
+      if (botao == "Alterar senha") {
+        return "botao_alterar_senha";
+      }
+
     };
-    if ((ele_botao == "Voltar")) {
+
+    if ((inf == "botao_redefinir_a_senha")) {
+      // Alterar texto
+      document.getElementById("login_titulo").innerHTML = "Recuperar acesso";
+      document.getElementById("login_botao_submit").value = "Alterar senha";
+      // Ocultar
+      document.getElementById("login_form_acesso").style.display = "none";
+      document.getElementById("login_form_cadastre_se").style.display = "none";
+      document.getElementById("login_botao_redefinir_senha").style.display = "none";
+      document.getElementById("login_botao_cadastre_se").style.display = "none";
+      // Mostrar
+      document.getElementById("login_form_redefinir_senha").style.display = "block";
+      document.getElementById("login_botao_voltar").style.display = "block";
+      return "botao_redefinir_a_senha";
+    }
+    if ((inf == "botao_cadastre_se")) {
+      // Alterar texto
+      document.getElementById("login_titulo").innerHTML = "Cadastro";
+      document.getElementById("login_botao_submit").value = "Confirmar";
+      // Ocultar
+      document.getElementById("login_form_acesso").style.display = "none";
+      document.getElementById("login_form_redefinir_senha").style.display = "none";
+      document.getElementById("login_botao_redefinir_senha").style.display = "none";
+      document.getElementById("login_botao_cadastre_se").style.display = "none";
+      // Mostrar
+      document.getElementById("login_form_cadastre_se").style.display = "block";
+      document.getElementById("login_botao_voltar").style.display = "block";
+      return "botao_cadastre_se";
+    }
+    if ((inf == "botao_voltar")) {
+      // Alterar texto
+      document.getElementById("login_titulo").innerHTML = "Acesso";
+      document.getElementById("login_botao_submit").value = "Entrar";
+      // Ocultar
+      document.getElementById("login_form_redefinir_senha").style.display = "none";
+      document.getElementById("login_form_cadastre_se").style.display = "none";
+      document.getElementById("login_botao_voltar").style.display = "none";
+      // Mostrar
+      document.getElementById("login_form_acesso").style.display = "block";
+      document.getElementById("login_botao_redefinir_senha").style.display = "block";
+      document.getElementById("login_botao_cadastre_se").style.display = "block";
       return "botao_voltar";
     }
   },
@@ -52,7 +98,6 @@ export const funcoes = {
     // Mostrar
     document.getElementById("login_form_redefinir_senha").style.display = "block";
     document.getElementById("login_botao_voltar").style.display = "block";
-
   }
 
 
@@ -69,3 +114,6 @@ export const funcoes = {
     } */
 
 }
+
+
+
