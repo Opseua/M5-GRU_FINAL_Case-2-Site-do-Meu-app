@@ -59,6 +59,16 @@
     margin-bottom: 10px;
 }
 
+.login_todos_os_formularios input[type="number"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login_todos_os_formularios input[type="date"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .login_todos_os_formularios input[type="password"] {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -120,11 +130,15 @@
 }
 
 .login_todos_os_formularios input[type="text"]:focus,
+.login_todos_os_formularios input[type="date"]:focus,
+.login_todos_os_formularios input[type="number"]:focus,
 .login_todos_os_formularios input[type="password"]:focus {
     border: 2px #0FC2C0 solid;
 }
 
 .login_todos_os_formularios input[type="text"],
+.login_todos_os_formularios input[type="number"],
+.login_todos_os_formularios input[type="date"],
 .login_todos_os_formularios input[type="password"] {
     width: 100%;
     border: none;

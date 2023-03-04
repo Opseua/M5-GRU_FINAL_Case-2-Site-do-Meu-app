@@ -35,14 +35,14 @@ export default function Login() {
       };
 
 
-      // GET Consultar usuario
+      // GET Consultar usuario ############################## ENTRAR
       if (inf.match(/ENTRAR/)) {
         const email_form = funcoes.PegarPeloId("login_acesso_email");
+        const senha1_form = funcoes.PegarPeloId("login_acesso_senha_1");
         if ((typeof email_form === 'undefined') || !(email_form.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/))) {
           alert("Acesso: EMAIL INVÁLIDO!");
           return
         }
-        const senha1_form = funcoes.PegarPeloId("login_acesso_senha_1");
         if ((typeof senha1_form === 'undefined') || !(senha1_form.length > 7)) {
           alert("Acesso: SENHA NÃO CONTEM 8 CARACTERES!");
           return
@@ -78,7 +78,7 @@ export default function Login() {
 
 
 
-      // Alterar senha
+      // Alterar senha ############################## ALTERAR_SENHA
       if (inf.match(/ALTERAR_SENHA/)) {
         const email = funcoes.PegarPeloId("login_redefinir_senha_email");
         const pergu = funcoes.PegarPeloId("login_redefinir_senha_reset_pergunta");
@@ -108,7 +108,7 @@ export default function Login() {
         }
 
 
-        // Alterar senha GET 2 (pegar da banco de dados)
+        // GET 2 Alterar senha (pegar da banco de dados)
         setLoading(true);
         setTimeout(() => {
           axios
@@ -118,7 +118,7 @@ export default function Login() {
               alert(`${resultado_2.usuario_nome} | Senha ${senha1}`);
 
 
-              // Alterar senha PUT
+              // PUT Alterar senha ############################## CONFIRMAR
               if (!(resultado_2.usuario_id > 0)) {
                 alert("Redefinir senha: ID DO USUÁRIO ERRADO!");
                 return
@@ -163,7 +163,7 @@ export default function Login() {
               }, 1);
 
 
-
+              // Erro se não conseguir encontrar o ID do usuário no GET 2
             })
             .catch((error) => {
               alert("Redefinir senha: ERRO AO BUSCAR DADOS")
@@ -174,6 +174,127 @@ export default function Login() {
         }, 1);
 
       }
+
+
+      // POST Se cadastrar ############################## CADASTRAR
+      if (inf.match(/CADASTRAR/)) {
+        const nome = funcoes.PegarPeloId("login_se_cadastrar_nome");
+        const email = funcoes.PegarPeloId("login_se_cadastrar_email");
+        const senha1 = funcoes.PegarPeloId("login_se_cadastrar_senha_1");
+        const senha2 = funcoes.PegarPeloId("login_se_cadastrar_senha_2");
+        const genero = funcoes.PegarPeloId("login_se_cadastrar_genero");
+        const nascimento = funcoes.PegarPeloId("login_se_cadastrar_nascimento");
+        var peso = funcoes.PegarPeloId("login_se_cadastrar_peso");
+        var altura = funcoes.PegarPeloId("login_se_cadastrar_altura");
+        var tipo_sanguineo = funcoes.PegarPeloId("login_se_cadastrar_tipo_sanguineo");
+        const reset_pergunta = funcoes.PegarPeloId("login_se_cadastrar_reset_pergunta");
+        const reset_resposta = funcoes.PegarPeloId("login_se_cadastrar_reset_resposta");
+
+        if ((typeof nome === 'undefined') || !(nome.length > 3)) {
+          alert("Cadastro: NOME INVÁLIDO!");
+          return
+        };
+        if ((typeof email === 'undefined') || !(email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/))) {
+          alert("Cadastro: EMAIL INVÁLIDO!");
+          return
+        };
+        if ((typeof senha1 === 'undefined') || !(senha1.length > 7)) {
+          alert("Cadastro: SENHA PRECISA TER NO MÍNOMO 8 DÍGITOS!");
+          return
+        }
+        if (!(senha2 == senha1)) {
+          alert("Cadastro: SENHAS NÃO CONFEREM!");
+          return
+        }
+        if ((typeof genero === 'undefined') || !(genero.length > 2)) {
+          alert("Cadastro: ERRO GENERO!");
+          return
+        }
+        if ((typeof nascimento === 'undefined') || !(nascimento.length > 2)) {
+          alert("Cadastro: ERRO DATA DE NASCIMENTO!");
+          return
+        }
+        if ((typeof peso === 'undefined') || !(peso > 0)) {
+          alert("Cadastro: ERRO PESO!");
+          return
+        }
+        if ((typeof altura === 'undefined') || !(altura > 0)) {
+          alert("Cadastro: ERRO ALTURA!");
+          return
+        }
+        if ((typeof tipo_sanguineo === 'undefined') || !(tipo_sanguineo.length > 1)) {
+          alert("Cadastro: ERRO TIPO SANGUINEO!");
+          return
+        }
+        if ((typeof reset_pergunta === 'undefined') || !(reset_pergunta.length > 2)) {
+          alert("Cadastro: ERRO PERGUNTA!");
+          return
+        }
+        if ((typeof reset_resposta === 'undefined') || !(reset_resposta.length > 2)) {
+          alert("Cadastro: ERRO RESPOSTA!");
+          return
+        }
+
+        var peso = peso.replace(",", ".");
+        var altura = altura.replace(",", ".");
+
+
+
+
+        setTimeout(() => {
+          var data = JSON.stringify({
+            "usuario_nome": nome,
+            "usuario_email": email,
+            "usuario_senha": senha1,
+            "usuario_nascimento": nascimento,
+            "usuario_genero": genero,
+            "usuario_peso": peso,
+            "usuario_altura": altura,
+            "usuario_tipo_sanguineo": tipo_sanguineo,
+            "usuario_imc": (peso / (altura * altura)),
+            "usuario_reset_pergunta": reset_pergunta,
+            "usuario_reset_resposta": reset_resposta,
+            "usuario_extra": "{\"inf_1\":\"A\"}"
+          });
+          var config = {
+            method: 'post',
+            url: 'https://m5-gru-crud-api.cyclic.app/usuarios',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: data
+          };
+          axios(config)
+            .then(function (response) {
+              setLoading(false);
+              if (response.data.status == "error") {
+                console.log(response.data.message);
+                alert(`${response.data.message}`);
+                return
+              };
+              if (response.data.data.insertId > 0) {
+                console.log(response.data.data.insertId);
+                alert(`Cadastrado com sucesso! Usuário ID: ${response.data.data.insertId}`);
+                return
+              };
+              alert("Erro 1 ao cadastrar")
+
+
+            })
+            .catch(function (error) {
+              setLoading(false);
+              alert("Erro 2 ao cadastrar")
+            });
+        }, 1);
+
+
+
+      }
+
+
+
+
+
     };
   }
 
@@ -242,25 +363,25 @@ export default function Login() {
               {/* Formulário: elementos do formulário 'CADASTRO' */}
               <div id="login_form_cadastre_se">
 
-                <input className="login_input" type="text" name="usuario_nome" placeholder="Nome*" required></input>
-                <input className="login_input" type="text" name="usuario_email" placeholder="E-mail*" required></input>
-                <input className="login_input" type="password" name="usuario_senha_1" placeholder="Senha*" required></input>
-                <input className="login_input" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
+                <input className="login_input" id="login_se_cadastrar_nome" type="text" name="usuario_nome" placeholder="Nome*" required></input>
+                <input className="login_input" id="login_se_cadastrar_email" type="text" name="usuario_email" placeholder="E-mail*" required></input>
+                <input className="login_input" id="login_se_cadastrar_senha_1" type="password" name="usuario_senha_1" placeholder="Senha*" required></input>
+                <input className="login_input" id="login_se_cadastrar_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
                   required></input>
-                <input className="login_input" type="text" name="usuario_genero" placeholder="Gênero"></input>
-                <input className="login_input" type="text" name="usuario_nascimento" placeholder="Data de nascimento"
+                <input className="login_input" id="login_se_cadastrar_genero" type="text" name="usuario_genero" placeholder="Gênero" required></input>
+                <input className="login_input" id="login_se_cadastrar_nascimento" type="date" min="1980-12-31" max="2030-12-31" name="usuario_nascimento" placeholder="Data de nascimento"
                   required></input>
-                <input className="login_input" type="text" name="usuario_peso" placeholder="Seu peso"></input>
-                <input className="login_input" type="text" name="usuario_altura" placeholder="Sua altura"></input>
-                <input className="login_input" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo"></input>
-                <input className="login_input" type="text" name="usuario_reset_pergunta"
+                <input className="login_input" id="login_se_cadastrar_peso" type="number" step="0.01" name="usuario_peso" placeholder="Seu peso" required></input>
+                <input className="login_input" id="login_se_cadastrar_altura" type="number" step="0.01" name="usuario_altura" placeholder="Sua altura" required></input>
+                <input className="login_input" id="login_se_cadastrar_tipo_sanguineo" type="text" name="usuario_tipo_sanguineo" placeholder="Seu tipo sanguíneo" required></input>
+                <input className="login_input" id="login_se_cadastrar_reset_pergunta" type="text" name="usuario_reset_pergunta"
                   placeholder="Pergunta de segurança*" required></input>
-                <input className="login_input" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
+                <input className="login_input" id="login_se_cadastrar_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
                   required></input>
 
               </div>
               {/*  Formulário: elemento botão 'ENTRAR' */}
-              <input onClick={() => { const botao = funcoes.BotaoSumit("botao_entrar"); if (botao == "botao_entrar") { botao_funcao("ENTRAR") } if (botao == "botao_alterar_senha") { botao_funcao("ALTERAR_SENHA") } }} className="login_input" id="login_botao_submit"
+              <input onClick={() => { const botao = funcoes.BotaoSumit("botao_submit"); if (botao == "botao_entrar") { botao_funcao("ENTRAR") } if (botao == "botao_alterar_senha") { botao_funcao("ALTERAR_SENHA") } if (botao == "botao_confirmar") { botao_funcao("CADASTRAR") } }} className="login_input" id="login_botao_submit"
                 type="submit" name="Entrar" value="Entrar"></input>
 
               {/* Formulário: elemento botão 'VOLTAR' */}

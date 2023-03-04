@@ -30,14 +30,17 @@ export const funcoes = {
   /* ################################################################################## */
 
   BotaoSumit: (inf) => {
-    
-    if ((inf == "botao_entrar")) {
+
+    if ((inf == "botao_submit")) {
       const botao = document.getElementById("login_botao_submit").value;
       if (botao == "Entrar") {
         return "botao_entrar";
       };
       if (botao == "Alterar senha") {
         return "botao_alterar_senha";
+      }
+      if (botao == "Confirmar") {
+        return "botao_confirmar";
       }
 
     };
