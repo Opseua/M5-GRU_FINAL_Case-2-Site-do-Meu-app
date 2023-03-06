@@ -10,10 +10,9 @@ const override = css`
   border-color: red;
 `;
 
-function Funcionalidades() {
+function Comunicados() {
   document.getElementById("navbar_botao_criar_nota").style.display = "none";
   document.getElementById("navbar_botao_perfil").style.display = "none";
-
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -21,7 +20,7 @@ function Funcionalidades() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://m5-gru-crud-api.cyclic.app/adm/funcionalidades")
+        .get("https://m5-gru-crud-api.cyclic.app/comunicados")
         .then((response) => {
           setData(response.data.data);
           setLoading(false);
@@ -34,7 +33,7 @@ function Funcionalidades() {
   }, []);
 
   return (
-    <div className="Funcionalidades">
+    <div className="Comunicados">
 
       {/* SPINNER LOADER DE CARREGAMENTO */}
       {loading && (
@@ -69,10 +68,10 @@ function Funcionalidades() {
           {data.map(item => (
 
 
-            <div className='funcionalidades_bloco_do_card'>
-              <div className='funcionalidades_titulo' key={item.funcionalidade_titulo}>
-                <h2>{item.funcionalidade_titulo}</h2>
-                <p className='funcionalidades_descricao'>{item.funcionalidade_descricao}</p>
+            <div className='comunicados_bloco_do_card'>
+              <div className='comunicados_genero' key={item.comunicado_genero}>
+                <h2>{item.comunicado_informacao}</h2>
+                <p><a href={item.comunicado_link} target='_blank' rel='noopener noreferrer' className='comunicado_link'>{item.comunicado_link}</a></p>
               </div>
             </div>
 
@@ -88,4 +87,4 @@ function Funcionalidades() {
   );
 }
 
-export default Funcionalidades;
+export default Comunicados;

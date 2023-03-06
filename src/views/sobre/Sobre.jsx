@@ -12,6 +12,10 @@ const override = css`
 
 
 function Sobre() {
+  document.getElementById("navbar_botao_criar_nota").style.display = "none";
+  document.getElementById("navbar_botao_perfil").style.display = "none";
+
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 

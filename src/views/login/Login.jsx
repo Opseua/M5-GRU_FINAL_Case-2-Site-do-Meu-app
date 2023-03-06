@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
-import './style.css';
+import "./style.css";
 import logo from './imagens/logo_circulo.jpg';
 import { funcoes } from './funcoes.js';
 import { css } from "@emotion/react";
@@ -17,10 +17,10 @@ const override = css`
 
 
 
-
-
-
 export default function Login() {
+
+
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -59,6 +59,15 @@ export default function Login() {
 
               if (sha1(senha1_form) == senha1_api) {
                 funcoes.DefinirVariavelLocal('usuario_id', resultado.usuario_id)
+
+                document.getElementById("navbar_botao_criar_nota").style.display = "block";
+                document.getElementById("navbar_botao_perfil").style.display = "block";
+
+                document.getElementById("navbar_botao_sobre").style.display = "none";
+                document.getElementById("navbar_botao_funcionalidades").style.display = "none";
+                document.getElementById("navbar_botao_comunicados").style.display = "none";
+                /* document.getElementById("navbar_botao_login").style.display = "none"; */
+                
                 alert(`SENHA OK | ID: ${funcoes.PegarVariavelLocal('usuario_id')} | Abrindo página de notas`);
                 botao_funcao("/sobre")
               }

@@ -1,5 +1,6 @@
 @mixin breakpoint($point) {
-  @if $point == md {
+  @if $point ==md {
+
     // 768px
     @media (min-width: 930px) {
       @content;
@@ -12,9 +13,11 @@
   width: 100%;
   height: 100px;
   padding: 0 1.5rem;
+
   @include breakpoint(md) {
     padding: 0 3rem;
   }
+
   transition: 0.3s ease all;
 
   &__content {
@@ -62,26 +65,31 @@
         height: 100%;
         position: static;
       }
+
       ul {
         list-style: none;
         padding: 0;
         display: flex;
         flex-direction: column;
         margin-bottom: 32px;
+
         @include breakpoint(md) {
           flex-direction: row;
           align-items: center;
           margin-bottom: 0;
           margin-right: calc(0.5rem + #{16px});
         }
+
         li {
           &:not(:last-child) {
             margin-bottom: 32px;
+
             @include breakpoint(md) {
               margin-bottom: 0;
               margin-right: 16px;
             }
           }
+
           a {
             text-decoration: none;
             color: inherit;
@@ -92,6 +100,7 @@
             &:hover {
               background: rgba(#fff, 0.1);
             }
+
             &:active {
               border-radius: calc(#{12px} + 6px);
               background: linear-gradient(rgba(#fff, 0.1), rgba(#fff, 0.2));
@@ -99,6 +108,11 @@
           }
         }
       }
+
+      .profile-pic {
+        border-radius: 50%;
+      }
+
       .btn {
         cursor: pointer;
         outline: none;
@@ -117,14 +131,14 @@
           background: rgba(rgb(162, 162, 246), 0.1);
           color: rgb(162, 162, 246);
         }
+
         &:active {
           border-color: rgb(162, 162, 246);
-          background: linear-gradient(
-            rgba(rgb(162, 162, 246), 0.2),
-            rgba(rgb(162, 162, 246), 0.3)
-          );
+          background: linear-gradient(rgba(rgb(162, 162, 246), 0.2),
+              rgba(rgb(162, 162, 246), 0.3));
           color: rgb(162, 162, 246);
         }
+
         &__login {
           background-color: rgb(32, 32, 32);
           color: #fff;

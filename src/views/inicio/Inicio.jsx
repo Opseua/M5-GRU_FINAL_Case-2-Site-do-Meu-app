@@ -7,7 +7,8 @@ import imagem3 from './imagens/3.png';
 
 
 function Inicio() {
-
+  
+  
 
   return (
     <div className="mainFrame_inicio">
