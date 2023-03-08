@@ -128,9 +128,9 @@ FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
 
 
 ```bash 
-FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
+COMUNICADOS → http://localhost:5173/#/funcionalidades
 ```
-![FUNCIONALIDADES](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FUNCIONALIDADES.png)
+![COMUNICADOS](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/COMUNICADOS.png)
 
 
 ```bash 
