@@ -14,7 +14,7 @@
 
 .imagem-card {
   display: block;
-  width: 30%;
+  width: 100%;
   margin: 2rem;
   border-radius: 1rem;
 }
@@ -25,7 +25,6 @@
   font-size: 18px;
   margin-left: 3rem;
   margin-right: 3rem;
-  
 }
  
 .inicio_h1 {
