@@ -64,7 +64,7 @@ function Comunicados() {
 
         {!loading && data && (
           /* #################### */
-          <div className='nao_usar_essa_div2'>
+          <div className='nao_usar_essa_div1'>
             {/* ↓↓↓ NÃO APAGAR NEM USAR ESSA DIV ↓↓↓ */}
             <div className='nao_usar_essa_div2'>&nbsp;</div>
             {/* ↑↑↑ NÃO APAGAR NEM USAR ESSA DIV ↑↑↑ */}
