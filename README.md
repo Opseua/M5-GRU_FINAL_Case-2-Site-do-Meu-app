@@ -112,65 +112,65 @@ https://m5-gru-crud-api.cyclic.app/adm/funcionalidades
 ```bash 
 INCIO → http://localhost:5173/#
 ```
-![INICIO](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/INICIO.png)
+![INICIO](./src/assets/INICIO.png)
 
 
 ```bash 
 SOBRE → http://localhost:5173/#/sobre
 ```
-![SOBRE](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/SOBRE.png)
+![SOBRE](./src/assets/SOBRE.png)
 
 
 ```bash 
 FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
 ```
-![FUNCIONALIDADES](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FUNCIONALIDADES.png)
+![FUNCIONALIDADES](./src/assets/FUNCIONALIDADES.png)
 
 
 ```bash 
 COMUNICADOS → http://localhost:5173/#/funcionalidades
 ```
-![COMUNICADOS](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/COMUNICADOS.png)
+![COMUNICADOS](./src/assets/COMUNICADOS.png)
 
 
 ```bash 
 LOGIN → http://localhost:5173/#/login
 ```
-![LOGIN](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/LOGIN.png)
+![LOGIN](./src/assets/LOGIN.png)
 
 
 ```bash 
 NOTAS (feed) → http://localhost:5173/#/feed
 ```
-![FEED](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FEED.png)
+![FEED](./src/assets/FEED.png)
 ```bash 
 
 
 ```bash 
 NOTAS (edit) → http://localhost:5173/#/edit/:id
 ```
-![EDIT](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/EDIT.png)
+![EDIT](./src/assets/EDIT.png)
 ```bash 
 
 
 ```bash 
 NOTAS (ler mais) → http://localhost:5173/#/lermais/:id
 ```
-![LER_MAIS](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/LER_MAIS.png)
+![LER_MAIS](./src/assets/LER_MAIS.png)
 ```bash 
 
 
 ```bash 
 NOTAS (criar) → http://localhost:5173/#/post
 ```
-![CRIAR_NOTA](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/CRIAR_NOTA.png)
+![CRIAR_NOTA](./src/assets/CRIAR_NOTA.png)
 ```bash 
 
 
 ```bash 
 PERFIL → http://localhost:5173/#/perfil
 ```
-![PERFIL](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/PERFIL.png)
+![PERFIL](./src/assets/PERFIL.png)
 
 
 
