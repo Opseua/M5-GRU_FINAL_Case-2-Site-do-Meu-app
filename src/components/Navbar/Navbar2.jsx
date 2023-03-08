@@ -44,7 +44,7 @@ export default function Navbar() {
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__content__logo">
-          <img src={MinhaImagem} alt="Minha imagem" style={{ width: '70px' }} />
+        <img src={MinhaImagem} alt="Minha imagem" style={{ width: '60px' }} />
         </Link>
         <nav
           className={`${"header__content__nav"} 
@@ -66,10 +66,8 @@ export default function Navbar() {
               <button id="navbar_botao_criar_nota" className="btn">Voltar</button>
             </Link>
 
-
-
-            <Link to="/perfil">
-              <img id="navbar_botao_perfil" className="profile-pic" src={MinhaImagem2} alt="Minha imagem2" style={{ width: '80px', height: '80px' }} />
+            <Link to="/perfil" className="header__content__logo">
+              <img src={MinhaImagem2} alt="Minha imagem" style={{ width: '60px' }} />
             </Link>
 
           </ul>

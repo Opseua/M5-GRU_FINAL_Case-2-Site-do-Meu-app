@@ -63,9 +63,9 @@ function Sobre() {
 
         {!loading && data && (
           /* #################### */
-          <div>
+          <div className='nao_usar_essa_div1'>
             {/* ↓↓↓ NÃO APAGAR NEM USAR ESSA DIV ↓↓↓ */}
-            <div className='nao_usar_essa_div'>&nbsp;</div>
+            <div className='nao_usar_essa_div2'>&nbsp;</div>
             {/* ↑↑↑ NÃO APAGAR NEM USAR ESSA DIV ↑↑↑ */}
 
 
@@ -75,9 +75,11 @@ function Sobre() {
             {data.map((item, key) => {
               return (
                 <div className='sobre_bloco_do_card' key={key}>
-                  <div className='sobre_titulo' key={item.sobre_titulo}>
-                    <h2>{item.sobre_titulo}</h2>
-                    <p className='sobre_descricao'>{item.sobre_descricao}</p>
+                  <div className='sobre_bloco_do_card2'>
+                    <div className='sobre_titulo'>
+                      <h2>{item.sobre_titulo}</h2>
+                      <p className='sobre_descricao'>{item.sobre_descricao}</p>
+                    </div>
                   </div>
                 </div>
               );
