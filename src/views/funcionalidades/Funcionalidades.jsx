@@ -12,9 +12,8 @@ const override = css`
   border-color: red;
 `;
 
+function Funcionalidades() {
 
-function Sobre() {
-  window.localStorage.setItem('variavel_local', '<h1>3</h1>')
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -22,7 +21,7 @@ function Sobre() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://m5-gru-crud-api.cyclic.app/adm/sobre")
+        .get("https://m5-gru-crud-api.cyclic.app/adm/funcionalidades")
         .then((response) => {
           setData(response.data.data);
           setLoading(false);
@@ -31,16 +30,18 @@ function Sobre() {
           console.error(error);
           setLoading(false);
         });
-    }, 1);
+    }, 0);
   }, []);
 
   return (
 
-    <div>
+    <div > 
 
       <Navbar />
 
-      <div className="Sobre">
+      <div className="Funcionalidades">
+
+        {/* SPINNER LOADER DE CARREGAMENTO */}
         {loading && (
           <div
             style={{
@@ -63,21 +64,18 @@ function Sobre() {
 
         {!loading && data && (
           /* #################### */
-          <div>
+          <div className='nao_usar_essa_div1'> 
             {/* ↓↓↓ NÃO APAGAR NEM USAR ESSA DIV ↓↓↓ */}
-            <div className='nao_usar_essa_div'>&nbsp;</div>
+            <div className='nao_usar_essa_div2'>&nbsp;</div>
             {/* ↑↑↑ NÃO APAGAR NEM USAR ESSA DIV ↑↑↑ */}
-
-
             {/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ POR O CÓDIGO AQUI ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */}
-
 
             {data.map((item, key) => {
               return (
-                <div className='sobre_bloco_do_card' key={key}>
-                  <div className='sobre_titulo' key={item.sobre_titulo}>
-                    <h2>{item.sobre_titulo}</h2>
-                    <p className='sobre_descricao'>{item.sobre_descricao}</p>
+                <div className='funcionalidades_bloco_do_card' key={key}>
+                  <div className='funcionalidades_titulo' key={item.funcionalidade_titulo}>
+                    <h2>{item.funcionalidade_titulo}</h2>
+                    <p className='funcionalidades_descricao'>{item.funcionalidade_descricao}</p>
                   </div>
                 </div>
               );
@@ -93,4 +91,4 @@ function Sobre() {
   );
 }
 
-export default Sobre;
+export default Funcionalidades;
