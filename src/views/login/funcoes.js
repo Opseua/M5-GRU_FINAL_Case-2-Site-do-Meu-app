@@ -1,8 +1,9 @@
 export const funcoes = {
+
   PegarPeloId: (ele_pegar) => {
-    
+
     if (ele_pegar.match(/option/)) {
-      
+
       var e = document.getElementById(ele_pegar);
       var value = e.options[e.selectedIndex].value;
       var text = e.options[e.selectedIndex].text;
@@ -16,9 +17,8 @@ export const funcoes = {
   },
 
   ImputarPeloId: (ele_imputar, valor) => {
-    const elemento = document.getElementById(ele_imputar); // selecione o elemento usando o ID
-    elemento.value = valor; // defina o valor desejado
-    /* document.getElementById(ele_imputar).value = valor; */
+    const elemento = document.getElementById(ele_imputar);
+    elemento.value = valor;
   },
 
   ImputarPelaClass: async (ele_imputar, valor) => {
@@ -110,19 +110,6 @@ export const funcoes = {
     document.getElementById("login_form_redefinir_senha").style.display = "block";
     document.getElementById("login_botao_voltar").style.display = "block";
   }
-
-
-
-
-
-
-  /* ImputarPelaClass: async (ele_imputar, valor) => {
-    document.getElementsByClassName(ele_imputar)[0].value = valor;
-  } */
-
-  /*   ImputarPelaClass: function (ele_imputar, valor) => {
-      document.getElementsByClassName(ele_imputar)[0].value = valor;
-    } */
 
 }
 

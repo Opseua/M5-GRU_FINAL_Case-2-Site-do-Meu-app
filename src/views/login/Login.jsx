@@ -2,12 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./style.css";
-import logo from './imagens/logo_circulo.jpg';
+import logo from './imagens/logo_circulo.png';
 import { funcoes } from './funcoes.js';
 import { css } from "@emotion/react";
 import { ClipLoader } from "react-spinners";
 import sha1 from 'js-sha1';
-
+import Navbar from "../../components/Navbar/Navbar1";
 
 const override = css`
   display: block;
@@ -15,16 +15,10 @@ const override = css`
   border-color: red;
 `;
 
-
-
 export default function Login() {
-
-
-
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-
 
   function botao_funcao(inf) {
     if (!(typeof inf === 'undefined')) {
@@ -33,7 +27,6 @@ export default function Login() {
       if (inf.match(/\//)) {
         navigate(inf)
       };
-
 
       // GET Consultar usuario ############################## ENTRAR
       if (inf.match(/ENTRAR/)) {
@@ -66,10 +59,9 @@ export default function Login() {
                 document.getElementById("navbar_botao_sobre").style.display = "none";
                 document.getElementById("navbar_botao_funcionalidades").style.display = "none";
                 document.getElementById("navbar_botao_comunicados").style.display = "none";
-                /* document.getElementById("navbar_botao_login").style.display = "none"; */
-                
+
                 alert(`SENHA OK | ID: ${funcoes.PegarVariavelLocal('usuario_id')} | Abrindo página de notas`);
-                botao_funcao("/sobre")
+                botao_funcao("/feed")
               }
               else {
                 alert("Acesso: SENHA INVALIDA")
@@ -83,9 +75,6 @@ export default function Login() {
             });
         }, 1);
       };
-
-
-
 
       // Alterar senha ############################## ALTERAR_SENHA
       if (inf.match(/ALTERAR_SENHA/)) {
@@ -116,7 +105,6 @@ export default function Login() {
           return
         }
 
-
         // GET 2 Alterar senha (pegar da banco de dados)
         setLoading(true);
         setTimeout(() => {
@@ -125,7 +113,6 @@ export default function Login() {
             .then((response) => {
               var resultado_2 = response.data.data[0];
               alert(`${resultado_2.usuario_nome} | Senha ${senha1}`);
-
 
               // PUT Alterar senha ############################## CONFIRMAR
               if (!(resultado_2.usuario_id > 0)) {
@@ -171,7 +158,6 @@ export default function Login() {
                   });
               }, 1);
 
-
               // Erro se não conseguir encontrar o ID do usuário no GET 2
             })
             .catch((error) => {
@@ -183,7 +169,6 @@ export default function Login() {
         }, 1);
 
       }
-
 
       // POST Se cadastrar ############################## CADASTRAR
       if (inf.match(/CADASTRAR/)) {
@@ -198,7 +183,6 @@ export default function Login() {
         var tipo_sanguineo = funcoes.PegarPeloId("option_login_se_cadastrar_tipo_sanguineo");
         const reset_pergunta = funcoes.PegarPeloId("option_login_se_cadastrar_reset_pergunta");
         const reset_resposta = funcoes.PegarPeloId("login_se_cadastrar_reset_resposta");
-        
 
         if ((typeof nome === 'undefined') || !(nome.length > 3)) {
           alert("Cadastro: NOME INVÁLIDO!");
@@ -248,9 +232,6 @@ export default function Login() {
         var peso = peso.replace(",", ".");
         var altura = altura.replace(",", ".");
 
-
-
-
         setTimeout(() => {
           var data = JSON.stringify({
             "usuario_nome": nome,
@@ -298,175 +279,143 @@ export default function Login() {
             });
         }, 1);
 
-
-
       }
-
-
-
-
 
     };
   }
 
-
-
   return (
-
-    <div className="Sobre">
-      {loading && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: "9999",
-            backgroundColor: "#fff",
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <ClipLoader color={"#36D7B7"} loading={loading} css={override} size={150} />
-        </div>
-      )}
-
-      {!loading && data && (
-        /* #################### */
-        <div>
-          {/* ↓↓↓ NÃO APAGAR NEM USAR ESSA DIV ↓↓↓ */}
-          <div className='nao_usar_essa_div'>&nbsp;</div>
-          {/* ↑↑↑ NÃO APAGAR NEM USAR ESSA DIV ↑↑↑ */}
-
-
-          {/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ POR O CÓDIGO AQUI ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */}
-
-          <div className="login_box">
-            <div className="brand_logo_container">
-              <img src={logo} className="brand_logo" alt="Logo"></img>
-            </div>
-            {/* ################################################################### */}
-            {/* Formulário: ACESSO / REDEFINIR SENHA / CADASTRO */}
-            <form className="login_todos_os_formularios">
-              {/*  Formulário: elemento 'TÍTULO' */}
-              <h1 className="login_h1" id="login_titulo">Acesso</h1>
-              {/* Formulário: elementos do formulário 'ACESSO' */}
-              <div id="login_form_acesso">
-                <input className="login_input" id="login_acesso_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
-                <input className="login_input" id="login_acesso_senha_1" type="password" name="usuario_senha_1" placeholder="Senha" required></input>
-              </div>
-              {/* Formulário: elementos do formulário 'REDEFINIR SENHA' */}
-              <div id="login_form_redefinir_senha">
-
-                <input className="login_input" id="login_redefinir_senha_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
-                <input className="login_input" id="login_redefinir_senha_reset_pergunta" type="text" name="usuario_reset_pergunta"
-                  placeholder="Pergunta de segurança" required></input>
-                <input className="login_input" id="login_redefinir_senha_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
-                  required></input>
-                <input className="login_input" id="login_redefinir_senha_senha_1" t type="password" name="usuario_senha_1" placeholder="Nova senha" required></input>
-                <input className="login_input" id="login_redefinir_senha_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
-                  required></input>
-
-              </div>
-              {/* Formulário: elementos do formulário 'CADASTRO' */}
-              <div id="login_form_cadastre_se">
-
-                <input className="login_input" id="login_se_cadastrar_nome" type="text" name="usuario_nome" placeholder="Nome" required></input>
-                <input className="login_input" id="login_se_cadastrar_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
-                <input className="login_input" id="login_se_cadastrar_senha_1" type="password" name="usuario_senha_1" placeholder="Senha" required></input>
-                <input className="login_input" id="login_se_cadastrar_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
-                  required></input>
-
-                <select className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" name="genero" required>
-                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="">Genero</option>
-                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="Masculino">Masculino</option>
-                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="feminino">Feminino</option>
-                  <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="outros">Outros</option>
-                </select>
-
-
-                <input className="login_input" id="login_se_cadastrar_nascimento" type="date" min="1980-12-31" max="2030-12-31" name="usuario_nascimento" placeholder="Data de nascimento"
-                  required></input>
-                <input className="login_input" id="login_se_cadastrar_peso" type="number" step="0.01" name="usuario_peso" placeholder="Seu peso" required></input>
-                <input className="login_input" id="login_se_cadastrar_altura" type="number" step="0.01" name="usuario_altura" placeholder="Sua altura" required></input>
-
-
-
-
-
-
-                <select className="login_input" type="text" id="option_login_se_cadastrar_tipo_sanguineo" name="tipo_sanguineo" required>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="nao_sei">Não sei</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A+">A+</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="B+">B+</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB+">AB+</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O+">O+</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A-">A-</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB-">B-</option>
-                  <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O-">O-</option>
-                </select>
-
-
-
-
-
-
-
-
-
-                <select className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" name="genero" required>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Pergunta de segurança</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Comida favorita?</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="feminino">Cor favorita?</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Filme favorito?</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Prefere calor ou frio??</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Nome do pai?</option>
-                  <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Música favorita?</option>
-                </select>
-
-
-
-
-
-                <input className="login_input" id="login_se_cadastrar_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
-                  required></input>
-
-              </div>
-              {/*  Formulário: elemento botão 'ENTRAR' */}
-              <input onClick={() => { const botao = funcoes.BotaoSumit("botao_submit"); if (botao == "botao_entrar") { botao_funcao("ENTRAR") } if (botao == "botao_alterar_senha") { botao_funcao("ALTERAR_SENHA") } if (botao == "botao_confirmar") { botao_funcao("CADASTRAR") } }} className="login_input" id="login_botao_submit"
-                type="submit" name="Entrar" value="Entrar"></input>
-
-              {/* Formulário: elemento botão 'VOLTAR' */}
-              <input onClick={() => { if (funcoes.BotaoSumit("botao_voltar") == "botao_voltar") { botao_funcao("botao_voltar") } }} className="login_input" id="login_botao_voltar"
-                type="submit" name="Voltar" value="Voltar"></input>
-
-              {/* Formulário: elementos botões 'REDEFINIR SENHA' e 'CADASTRE-SE' */}
-              <div className="login_links">
-                <input onClick={() => funcoes.BotaoSumit("botao_redefinir_a_senha")} className="login_input"
-                  id="login_botao_redefinir_senha" type="submit" name="Redefinir_senha" value="Redefinir senha"></input>
-
-                <input onClick={() => { if (funcoes.BotaoSumit("botao_cadastre_se") == "botao_cadastre_se") { botao_funcao("botao_cadastre_se") } }} className="login_input"
-                  id="login_botao_cadastre_se" type="submit" name="Cadastre_se" value="Cadastre-se"></input>
-              </div>
-            </form>
+    <div>
+      <Navbar />
+      <div className="Sobre">
+        {loading && (
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: "9999",
+              backgroundColor: "#fff",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <ClipLoader color={"#36D7B7"} loading={loading} css={override} size={150} />
           </div>
+        )}
 
-          {/* ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ POR O CÓDIGO AQUI ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */}
-        </div>
-      )}
+        {!loading && data && (
+          /* #################### */
+          <div>
+            {/* ↓↓↓ NÃO APAGAR NEM USAR ESSA DIV ↓↓↓ */}
+            <div className='nao_usar_essa_div'>&nbsp;</div>
+            {/* ↑↑↑ NÃO APAGAR NEM USAR ESSA DIV ↑↑↑ */}
+            {/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ POR O CÓDIGO AQUI ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */}
+
+            <div className="login_box">
+              <div className="brand_logo_container">
+                <img src={logo} className="brand_logo" alt="Logo"></img>
+              </div>
+              {/* ################################################################### */}
+              {/* Formulário: ACESSO / REDEFINIR SENHA / CADASTRO */}
+              <form className="login_todos_os_formularios">
+                {/*  Formulário: elemento 'TÍTULO' */}
+                <h1 className="login_h1" id="login_titulo">Acesso</h1>
+                {/* Formulário: elementos do formulário 'ACESSO' */}
+                <div id="login_form_acesso">
+                  <input className="login_input" id="login_acesso_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
+                  <input className="login_input" id="login_acesso_senha_1" type="password" name="usuario_senha_1" placeholder="Senha" required></input>
+                </div>
+                {/* Formulário: elementos do formulário 'REDEFINIR SENHA' */}
+                <div id="login_form_redefinir_senha">
+
+                  <input className="login_input" id="login_redefinir_senha_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
+                  <input className="login_input" id="login_redefinir_senha_reset_pergunta" type="text" name="usuario_reset_pergunta"
+                    placeholder="Pergunta de segurança" required></input>
+                  <input className="login_input" id="login_redefinir_senha_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
+                    required></input>
+                  <input className="login_input" id="login_redefinir_senha_senha_1" t type="password" name="usuario_senha_1" placeholder="Nova senha" required></input>
+                  <input className="login_input" id="login_redefinir_senha_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
+                    required></input>
+
+                </div>
+                {/* Formulário: elementos do formulário 'CADASTRO' */}
+                <div id="login_form_cadastre_se">
+
+                  <input className="login_input" id="login_se_cadastrar_nome" type="text" name="usuario_nome" placeholder="Nome" required></input>
+                  <input className="login_input" id="login_se_cadastrar_email" type="text" name="usuario_email" placeholder="E-mail" required></input>
+                  <input className="login_input" id="login_se_cadastrar_senha_1" type="password" name="usuario_senha_1" placeholder="Senha" required></input>
+                  <input className="login_input" id="login_se_cadastrar_senha_2" type="password" name="usuario_senha_2" placeholder="Confirmar senha*"
+                    required></input>
+
+                  <select className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" name="genero" required>
+                    <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="">Genero</option>
+                    <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="Masculino">Masculino</option>
+                    <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="feminino">Feminino</option>
+                    <option className="login_se_cadastrar_genero" id="option_login_se_cadastrar_genero" type="text" value="outros">Outros</option>
+                  </select>
+
+                  <input className="login_input" id="login_se_cadastrar_nascimento" type="date" min="1980-12-31" max="2030-12-31" name="usuario_nascimento" placeholder="Data de nascimento"
+                    required></input>
+                  <input className="login_input" id="login_se_cadastrar_peso" type="number" step="0.01" name="usuario_peso" placeholder="Seu peso" required></input>
+                  <input className="login_input" id="login_se_cadastrar_altura" type="number" step="0.01" name="usuario_altura" placeholder="Sua altura" required></input>
+
+                  <select className="login_input" type="text" id="option_login_se_cadastrar_tipo_sanguineo" name="tipo_sanguineo" required>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="nao_sei">Não sei</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A+">A+</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="B+">B+</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB+">AB+</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O+">O+</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="A-">A-</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="AB-">B-</option>
+                    <option className="login_input" id="option_login_se_cadastrar_tipo_sanguineo" type="text" value="O-">O-</option>
+                  </select>
+
+                  <select className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" name="genero" required>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Pergunta de segurança</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="">Comida favorita?</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="feminino">Cor favorita?</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Filme favorito?</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Prefere calor ou frio??</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Nome do pai?</option>
+                    <option className="login_se_cadastrar_reset_pergunta" id="option_login_se_cadastrar_reset_pergunta" type="text" value="outros">Música favorita?</option>
+                  </select>
+
+                  <input className="login_input" id="login_se_cadastrar_reset_resposta" type="text" name="usuario_reset_resposta" placeholder="Sua resposta*"
+                    required></input>
+
+                </div>
+                {/*  Formulário: elemento botão 'ENTRAR' */}
+                <input onClick={() => { const botao = funcoes.BotaoSumit("botao_submit"); if (botao == "botao_entrar") { botao_funcao("ENTRAR") } if (botao == "botao_alterar_senha") { botao_funcao("ALTERAR_SENHA") } if (botao == "botao_confirmar") { botao_funcao("CADASTRAR") } }} className="login_input" id="login_botao_submit"
+                  type="submit" name="Entrar" value="Entrar"></input>
+
+                {/* Formulário: elemento botão 'VOLTAR' */}
+                <input onClick={() => { if (funcoes.BotaoSumit("botao_voltar") == "botao_voltar") { botao_funcao("botao_voltar") } }} className="login_input" id="login_botao_voltar"
+                  type="submit" name="Voltar" value="Voltar"></input>
+
+                {/* Formulário: elementos botões 'REDEFINIR SENHA' e 'CADASTRE-SE' */}
+                <div className="login_links">
+                  <input onClick={() => funcoes.BotaoSumit("botao_redefinir_a_senha")} className="login_input"
+                    id="login_botao_redefinir_senha" type="submit" name="Redefinir_senha" value="Redefinir senha"></input>
+
+                  <input onClick={() => { if (funcoes.BotaoSumit("botao_cadastre_se") == "botao_cadastre_se") { botao_funcao("botao_cadastre_se") } }} className="login_input"
+                    id="login_botao_cadastre_se" type="submit" name="Cadastre_se" value="Cadastre-se"></input>
+                </div>
+              </form>
+            </div>
+
+            {/* ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ POR O CÓDIGO AQUI ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */}
+          </div>
+        )}
+      </div>
+
     </div>
-
 
   );
 }
-
-
-
-
-
-
 
 

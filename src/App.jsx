@@ -1,5 +1,4 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import Inicio from "./views/inicio/Inicio";
@@ -9,10 +8,10 @@ import Comunicados from "./views/comunicados/Comunicados";
 
 import Login from "./views/login/Login";
 
-import Feed from "./pages/Feed/feed";
-import Lermais from "./pages/LerMais/lermais";
-import Edit from "./pages/Edit/edit";
-import Post from "./pages/Post/post";
+import Feed from "./views/feed/Feed";
+import Lermais from "./views/lermais/LerMais";
+import Edit from "./views/edit/Edit";
+import Post from "./views/post/Post";
 
 import Perfil from "./views/perfil/Perfil";
 
@@ -43,11 +42,11 @@ function App() {
 export function WrappedApp() {
   return (
     <HashRouter>
-      <Navbar />
-      <body>
-        <App />
-      </body>
+
+      <App />
+
       <Footer />
+
     </HashRouter>
   );
 }

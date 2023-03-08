@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import Header from '../../components/Header/Header';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import moment from 'moment';
-
+import Navbar from "../../components/Navbar/Navbar2";
 
 const validationPost = yup.object().shape({
     nota_titulo: yup.string().required("O título é obrigatório").max(40, "O título precisa ter menosde 40 caracteres"),
@@ -14,10 +13,7 @@ const validationPost = yup.object().shape({
 });
 
 function Edit() {
-
     const { id } = useParams();
-
-
     const addPost = (data) => {
         const newData = {
             ...data,
@@ -34,33 +30,25 @@ function Edit() {
             });
     };
 
-
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(validationPost)
     })
-
     useEffect(() => {
         axios.get(`https://m5-gru-crud-api.cyclic.app/notas/${id}`)
-        .then((response) => {
-            reset(response.data.data[0]);
-            console.log(response.data.data[0]);
-        })
-        
+            .then((response) => {
+                reset(response.data.data[0]);
+                console.log(response.data.data[0]);
+            })
     }, []);
 
-    return(
+    return (
         <div>
-            <Header />
-            
+            <Navbar />
             <main>
-
                 <div className="card-post" >
-
                     <h1>Editar nota</h1>
                     <div className="line-post" ></div>
-
                     <div className="card-body-post" >
-
                         <form onSubmit={handleSubmit(addPost)} >
 
                             <div className="fields" >
@@ -80,14 +68,10 @@ function Edit() {
                             </div>
 
                         </form>
-
                     </div>
-
                 </div>
-
             </main>
         </div>
     )
 }
-
 export default Edit

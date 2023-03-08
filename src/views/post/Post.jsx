@@ -1,12 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import Header from '../../components/Header/Header';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import './post.css'
+import './style.css'
 import moment from 'moment';
-
+import Navbar from "../../components/Navbar/Navbar2";
 
 const validationPost = yup.object().shape({
     nota_titulo: yup.string().required("O título é obrigatório").max(40, "O título precisa ter menosde 40 caracteres"),
@@ -14,7 +13,6 @@ const validationPost = yup.object().shape({
 })
 
 function Post() {
-
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(validationPost)
     })
@@ -28,19 +26,17 @@ function Post() {
         axios.post("https://m5-gru-crud-api.cyclic.app/notas", newData)
             .then((res) => {
                 console.log(`DEU CERTO | ID da nota: ${res.data.data.insertId}`);
+                window.history.back("/feed");
             })
             .catch((err) => {
                 console.log(`DEU ERRO: ${err}`);
             });
     };
 
-
     return (
         <div>
-            <Header />
-
+            <Navbar />
             <main>
-
                 <div className="card-post" >
 
                     <h1>Criar postagem</h1>
@@ -67,15 +63,10 @@ function Post() {
                             </div>
 
                         </form>
-
                     </div>
-
                 </div>
-
             </main>
-
         </div>
     )
 }
-
 export default Post

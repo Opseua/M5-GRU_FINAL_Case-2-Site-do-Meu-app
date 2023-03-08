@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,200&family=Poppins:wght@300&display=swap");
 
-:root {
-  --bg-primary: #d7ebf6;
-  --bg-secondary: #24035a;
-  --bg-terniary: #2d85a6;
-  --text-primary: #222;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -15,7 +8,6 @@
 }
 
 body {
-  padding-bottom: 100px !important;
   height: auto;
   background-image: linear-gradient(19deg, #0FC2C0 0%, #023535 100%);
 }

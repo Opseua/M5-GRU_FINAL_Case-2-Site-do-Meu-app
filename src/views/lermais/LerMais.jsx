@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import Header from '../../components/Header/Header'
-import moment from 'moment';
+import Navbar from "../../components/Navbar/Navbar2";
 
 function LerMais() {
-
     const [lermais, setLermais] = useState({});
     const { id } = useParams();
-    
 
     useEffect(() => {
-
         axios.get(`https://m5-gru-crud-api.cyclic.app/notas/${id}`)
             .then(response => setLermais(response.data.data[0]))
             .catch(error => console.error(error));
@@ -19,14 +15,10 @@ function LerMais() {
     }, [])
 
     return (
-
         <div>
-            <Header />
-
+            <Navbar />
             <main>
-
                 <div className="cards">
-
                     <div className="card" >
 
                         <header>
@@ -38,12 +30,9 @@ function LerMais() {
                         <p>{lermais.nota_informacao}</p>
 
                     </div>
-
                 </div>
-
             </main>
         </div>
     )
 }
-
 export default LerMais
