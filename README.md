@@ -1,5 +1,4 @@
 # Projeto Final : Caderno da Saúde
-## Link do Site:
 
 ## Colaboradores
 _**Co-facilitador: Orlando Santana**_ <div>
