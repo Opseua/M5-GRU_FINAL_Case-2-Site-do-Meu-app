@@ -140,6 +140,18 @@ LOGIN → http://localhost:5173/#/login
 
 
 ```bash 
+REDEFINIR SENHA → http://localhost:5173/#/login
+```
+![LOGIN](./src/assets/REDEFINIR_SENHA.png)
+
+
+```bash 
+CADASTRO → http://localhost:5173/#/login
+```
+![LOGIN](./src/assets/CADASTRO.png)
+
+
+```bash 
 NOTAS (feed) → http://localhost:5173/#/feed
 ```
 ![FEED](./src/assets/FEED.png)
