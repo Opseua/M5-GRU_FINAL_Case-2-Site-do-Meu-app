@@ -43,12 +43,81 @@ horário de remédios, controle de medicamentos, cronograma de vacinação, e mu
 
 ## Iniciando a Aplicação
 
-### Rodando a aplicação
- ```bash
- - npm install
- - npm start
- ```
- 
- 
+```bash 
+# Clone o repositório com git clone
+$ <https://github.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app.git>
 
+# Instale as dependências:
+$ npm install
+
+# Execute
+$ npm start
+
+Acesse <http://localhost:5173> para visualizar a aplicação
+```
+
+ ## Endpoints
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/usuarios
+⚡GET → Lista todos os 'usuarios'
+⚡POST → Adiciona um 'usuario'
+⚡PUT/:id → Edita um 'usuario'
+⚡DELETE/:id → Deleta um 'usuario'
+```
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/notas
+⚡GET → Lista todos as 'notas'
+⚡POST → Adiciona uma 'nota'
+⚡PUT/:id → Edita uma 'nota'
+⚡DELETE/:id → Deleta uma 'nota'
+```
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/perguntas
+⚡GET → Lista todos as 'perguntas'
+⚡POST → Adiciona uma 'pergunta'
+⚡PUT/:id → Edita uma 'pergunta'
+⚡DELETE/:id → Deleta uma 'pergunta'
+```
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/comunicados
+⚡GET → Lista todos os 'comunicados'
+⚡POST → Adiciona um 'comunicado'
+⚡PUT/:id → Edita um 'comunicado'
+⚡DELETE/:id → Deleta um 'comunicado'
+```
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/adm/sobre
+⚡GET → Lista todos os 'sobre'
+⚡POST → Adiciona um 'sobre'
+⚡PUT/:id → Edita um 'sobre'
+⚡DELETE/:id → Deleta um 'sobre'
+```
+
+```bash 
+https://m5-gru-crud-api.cyclic.app/adm/funcionalidades
+⚡GET → Lista todos as 'funcionalidades'
+⚡POST → Adiciona uma 'funcionalidade'
+⚡PUT/:id → Edita uma 'funcionalidade'
+⚡DELETE/:id → Deleta uma 'funcionalidade'
+```
+
+```bash 
+⚡⚡⚡ LINKS DE ACESSO ⚡⚡⚡
+https://m5-gru-crud-api.cyclic.app/adm/funcionalidades
+INCIO → http://localhost:5173/#
+SOBRE → http://localhost:5173/#/sobre
+FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
+COMUNICADOS → http://localhost:5173/#/comunicados
+LOGIN → http://localhost:5173/#/login
+NOTAS (feed) → http://localhost:5173/#/feed
+NOTAS (edit) → http://localhost:5173/#/edit/:id
+NOTAS (ler mais) → http://localhost:5173/#/lermais/:id
+NOTAS (criar) → http://localhost:5173/#/post
+PERFIL → http://localhost:5173/#/perfil
+```
 
