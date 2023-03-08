@@ -163,7 +163,7 @@ NOTAS (ler mais) → http://localhost:5173/#/lermais/:id
 ```bash 
 NOTAS (criar) → http://localhost:5173/#/post
 ```
-![POST](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/POST.png)
+![CRIAR_NOTA](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/CRIAR_NOTA.png)
 ```bash 
 
 
@@ -171,7 +171,7 @@ NOTAS (criar) → http://localhost:5173/#/post
 PERFIL → http://localhost:5173/#/perfil
 ```
 ![PERFIL](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/PERFIL.png)
-```bash 
+
 
 
 
