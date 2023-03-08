@@ -106,18 +106,78 @@ https://m5-gru-crud-api.cyclic.app/adm/funcionalidades
 ⚡DELETE/:id → Deleta uma 'funcionalidade'
 ```
 
-```bash 
+
 ⚡⚡⚡ LINKS DE ACESSO ⚡⚡⚡
-https://m5-gru-crud-api.cyclic.app/adm/funcionalidades
+
+```bash 
 INCIO → http://localhost:5173/#
+```
+![INICIO](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/INICIO.png)
+
+
+```bash 
 SOBRE → http://localhost:5173/#/sobre
+```
+![SOBRE](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/SOBRE.png)
+
+
+```bash 
 FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
-COMUNICADOS → http://localhost:5173/#/comunicados
+```
+![FUNCIONALIDADES](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FUNCIONALIDADES.png)
+
+
+```bash 
+FUNCIONALIDADES → http://localhost:5173/#/funcionalidades
+```
+![FUNCIONALIDADES](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FUNCIONALIDADES.png)
+
+
+```bash 
 LOGIN → http://localhost:5173/#/login
+```
+![LOGIN](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/LOGIN.png)
+
+
+```bash 
 NOTAS (feed) → http://localhost:5173/#/feed
+```
+![FEED](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/FEED.png)
+```bash 
+
+
+```bash 
 NOTAS (edit) → http://localhost:5173/#/edit/:id
+```
+![EDIT](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/EDIT.png)
+```bash 
+
+
+```bash 
 NOTAS (ler mais) → http://localhost:5173/#/lermais/:id
+```
+![LER_MAIS](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/LER_MAIS.png)
+```bash 
+
+
+```bash 
 NOTAS (criar) → http://localhost:5173/#/post
+```
+![POST](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/POST.png)
+```bash 
+
+
+```bash 
 PERFIL → http://localhost:5173/#/perfil
 ```
+![PERFIL](https://raw.githubusercontent.com/Opseua/M5-GRU_FINAL_Case-2-Site-do-Meu-app/main/src/assets/PERFIL.png)
+```bash 
+
+
+
+
+
+
+
+
 
